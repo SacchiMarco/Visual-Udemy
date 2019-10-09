@@ -1,0 +1,38 @@
+﻿@using Vidly.Classes
+@using Vidly.Handler
+
+
+@{
+    ViewBag.Title = "Costumers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    CostumersHandler costumersHandler = new CostumersHandler();
+    costumersHandler.CostumersList.Add(new CostumersClass("Michael Goodman",1));
+    costumersHandler.CostumersList.Add(new CostumersClass("Fritz Eschmann",2));
+    costumersHandler.CostumersList.Add(new CostumersClass("Lila Pause",3));
+
+}
+
+<h2>Costumers</h2>
+
+@if (costumersHandler.CostumersList.Any())
+{
+    <ul class="list-group">
+
+        @foreach (CostumersClass i in costumersHandler.CostumersList)
+        {
+            <li class="list-group-item">@Html.ActionLink(i.CostumersName,
+                                            "Costumer",
+                                            "Costumers",
+                                            new{id = i.Id},
+                                            null)</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No Costumer yet!</p>
+}
+
+
+

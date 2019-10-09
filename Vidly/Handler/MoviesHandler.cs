@@ -8,9 +8,9 @@ namespace Vidly.Handler
     {
         public  MoviesHandler( )
         {
-            
+            this.MovieList = new List<MovieClass>();
         }
 
-        public List<MovieClass> MovieList = new List<MovieClass>();
+        public List<MovieClass> MovieList;
     }
 }
